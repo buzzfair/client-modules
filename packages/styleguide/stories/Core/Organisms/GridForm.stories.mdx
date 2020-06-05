@@ -27,7 +27,40 @@ directly.
 `columnGap` and `rowGap` with the normal string or
 responsive layouts.
 
-<Props of={GridForm} />
+## Temp
+
+<Preview>
+  <Story name="Temp">
+    <GridForm
+      fields={[
+        {
+          defaultValue: 'default value',
+          description: 'Does this default get reset',
+          name: 'has-default',
+          size: 4,
+          type: 'text',
+        },
+        {
+          description: 'Validation: must equal "swag"',
+          name: 'has-validation',
+          size: 4,
+          type: 'text',
+          validation: {
+            validate: (value) => value === 'swag' || 'Must be swag',
+          },
+        },
+      ]}
+      onSubmit={async (values) => {
+        action('Form Submitted')(values);
+      }}
+      submit={{
+        contents: 'Inline Submit!?',
+        size: 4,
+        position: 'right',
+      }}
+    />
+  </Story>
+</Preview>
 
 <Preview>
   <Story name="GridForm">
